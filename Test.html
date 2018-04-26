@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Test</title>
+    <script>
+        var test = {
+                        name: 'Hareesh',
+                        age: 34,
+                    }
+        
+        function unzip(obj){
+            for(var k in obj){
+                console.log(k);
+                console.log(obj[k]);
+            }
+        }
+
+        unzip(test);
+        console.log(test.name,test.age);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fancy Array</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        var coins = 100;
+        
+        function slot(availablecoins, happywin, minimumcoin){
+            while(availablecoins>0){
+                availablecoins -= 1;
+                var random = Math.trunc(Math.random()*100);
+                console.log(random);
+                if (!random) {
+                    var winning = 0;
+                    winning = Math.floor(((Math.random()+1)*50));
+                    console.log("Congratulations! You have won " + winning + " coins.");
+                    availablecoins = availablecoins + winning;
+                    console.log("You have in total " + availablecoins + " coins.");
+                    if (availablecoins < minimumcoin || availablecoins > happywin){
+                        return (availablecoins);
+                    } 
+                }
+            }
+            console.log("Better luck next time!");
+        }
+
+        slot(coins);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JQuery Assignment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="jqueryassignment.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script >
+        $(document).ready(function () {
+            
+            $(".clickbtn").mousedown(function () {
+                $("p.click").text("You are Awesome!!!");
+            });
+            $(".clickbtn").mouseup(function () {
+                $("p.click").text("Click on the button to reveal a surprise");
+            });
+            $(".hidebtn").click(function () {
+                $("span:last-child").hide("fast", function () {
+                    $(this).prev().hide("fast", arguments.callee);
+                });
+            });
+            $(".showbtn").click(function () {
+                $("span").first().show("fast", function () {
+                    $(this).next().show("fast", arguments.callee);
+                });
+            });
+            $(".togglebtn").click(function () {
+                if ($("span:first-child").is(":hidden")){
+                    $("span").first().toggle("fast", function shownext() {
+                        $(this).next().toggle("fast", shownext);
+                    });
+                } else {
+                    $("span").last().toggle("fast", function shownext() {
+                        $(this).prev().toggle("fast", shownext);
+                    });                    
+                }
+            });
+            $(".slidedownbtn").click(function () {
+                if ($("span:first-child").is(":hidden")) {
+                    $("span").first().slideDown("fast", function shownext() {
+                        $(this).next().slideDown("fast", shownext);
+                    });
+                }
+            });
+            $(".slideupbtn").click(function () {
+                if ($("span:first-child").is(":visible")) {
+                    $("span").last().slideUp("fast", function shownext() {
+                        $(this).prev().slideUp("fast", shownext);
+                    });
+                } 
+            });
+            $(".slidetogglebtn").click(function () {
+                if ($("span:first-child").is(":visible")) {
+                    $("span").last().slideToggle("fast", function shownext() {
+                        $(this).prev().slideToggle("fast", shownext);
+                    });
+                } else {
+                    $("span").first().slideToggle("fast", function shownext() {
+                        $(this).next().slideToggle("fast", shownext);
+                    });                    
+                }
+            });
+            $(".fadeinbtn").click(function () {
+                $("p").fadeIn("slow"); 
+                $("br").fadeIn("slow");
+            });
+            $(".fadeoutbtn").click(function () {
+                $("p").fadeOut("slow");
+                $("br").fadeOut("slow");
+            });
+            $(".addclassbtn").click(function () {
+                $("p").addClass("addingclass");
+            });
+            $(".beforebtn").click(function () {
+                $(".hide").before(document.createTextNode("Hey There"));
+            });
+            $(".afterbtn").click(function () {
+                $("p").after(function () {
+                    return ("<div>" + this.className + "</div>");
+                });
+            });
+            $(".appendbtn").click(function () {
+                $("p").append(function () {
+                    return ("<div>" + this.className + "</div>");
+                });
+            });
+            $(".htmlbtn").click(function () {
+                $(".hide").after(function () {
+                    return ($(".hide").html());
+                });
+            });
+            $(".attrbtn").click(function() {
+                $("p")
+                    .attr("id", function (arr) {
+                        return ("p-id" + arr);
+                    })
+                    .each(function () {
+                        $(this).append("<div>" + $(this).attr("id") + "</div>");
+                    })                
+            })
+            $(".valbtn").click(function () {
+                $(".content").append("<input type='text' value='hi'>");
+                $("input").val("Just did it!");
+            })
+            $(".textbtn").click(function () {
+                $(".content").append("<h3>"+$("h1").text()+"</h3>");
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div  class="menu">
+            <button class="clickbtn">Click</button>
+            <button class="hidebtn">Hide</button>
+            <button class="showbtn">Show</button>
+            <button class="togglebtn">Toggle</button>
+            <button class="slidedownbtn">Slide Down</button>
+            <button class="slideupbtn">Slide Up</button>
+            <button class="slidetogglebtn">Slide Toggle</button>
+            <button class="fadeinbtn">Fade In</button>
+            <button class="fadeoutbtn">Fade Out</button>
+            <button class="addclassbtn">Add a class</button>
+            <button class="beforebtn">Before</button>
+            <button class="afterbtn">After</button>
+            <button class="appendbtn">Append</button>
+            <button class="htmlbtn">HTML</button>
+            <button class="attrbtn">Attribute</button>
+            <button class="valbtn">Value</button>
+            <button class="textbtn">Text</button>
+            <button class="databtn">Data</button>
+        </div>
+        <div class="content">
+            <h1>JQuery Functions</h1>
+            <p class="click">Click on the button to reveal a surprise! </p>
+            <p class="hide"> <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It
+                has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It
+                was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>
+            <br>
+            
+                <span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content
+                here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use
+                Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+                Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</span>
+            <br>
+            
+                <span>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by
+                injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem
+                Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators
+                on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses
+                a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which
+                looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic
+                words etc.</span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Disappearing Ninja</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        img{
+            width: 200px;
+            margin: auto;
+        }
+        .container{
+            width: 820px;
+            margin: auto;
+            text-align: center;
+        }
+        .thisimg{
+            display: inline-block;
+        }
+        button{
+            margin-top: 30px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("img").css("visibility","visible");
+            });
+            $(".thisimg").click(function () {
+                console.log($(this).children().prop("hidden"));
+                if($(this).children().is(":hidden")){
+                    console.log("Hidden");
+                    $(this).children().css("visibility","visible");
+                } else {
+                    console.log("visible");
+                    $(this).children().css("visibility", "hidden");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="thisimg">
+            <img src="5-2-ninja-png.png" alt="Ninja">
+        </div>
+        <div class="thisimg">
+            <img src="5-2-ninja-png.png" alt="Ninja">
+        </div>
+        <div class="thisimg">
+            <img src="5-2-ninja-png.png" alt="Ninja">
+        </div>
+        <div class="thisimg">
+            <img src="5-2-ninja-png.png" alt="Ninja">
+        </div>
+        <div class="thisimg">
+            <img src="5-2-ninja-png.png" alt="Ninja">
+        </div>
+        <div class="thisimg">
+            <img src="5-2-ninja-png.png" alt="Ninja">
+        </div>
+        <div class="thisimg">
+            <img src="5-2-ninja-png.png" alt="Ninja">
+        </div>
+        <div class="thisimg">
+            <img src="5-2-ninja-png.png" alt="Ninja">
+        </div>
+
+        <button type="button">Restore the Ninjas!</button>
+    </div>    
+</body>
+</html>

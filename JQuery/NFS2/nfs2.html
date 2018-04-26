@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Need for Speed 2</title>
+    <meta name="description" content="Welcome to Need for Speed 2. Show your driving skills">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="nfs2.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var maps = {celticruins: "Celtic Ruins", durhamroad: "Durham Road", kindiakpark: "Kindiak Park", landstrasse: "Land Strasse", lostcanyons: "Lost Canyons", racewayitaly: "Raceway Italy" , routeadonf:"Route Adonf" , snowyridge: "Snowy Ridge"};
+        var cars = {none: "Select a car", lancer: "Lancer", ferrari: "Ferrari Test", fordgt: "Ford GT", lotus: "Lotus", mclaren: "McLaren"};
+        $(document).ready(function () {
+            var buttonhtml = "";
+            var optionhtml = "";
+            for(var mapkey in maps){
+                buttonhtml += "<button type = 'button' id='" + mapkey + "'>"+ maps[mapkey]+"</button>"
+            }
+            $(".mapchoice").append(buttonhtml);
+            for (var carkey in cars) {
+                optionhtml += "<option value='" + carkey + "'>" + cars[carkey] + "</option>"
+            }
+            $("#player1").html(optionhtml);
+            $("#player2").html(optionhtml);
+            function generatebackground(buttonid) {
+                var htmlstr = "";
+                htmlstr = "url('NFS2_" + buttonid +"Slide.jpg')" ;   
+               return (htmlstr);            
+            }
+            $("button").hover( function () {
+                $(".maincontainer").css('background-image', generatebackground($(this).prop("id")));
+            }, function () {
+                $(".maincontainer").css("background-image", "url('nfs.jpg')");
+            });
+            $("button").click(function () {
+                $("button").off("mouseleave");
+                $(".mapchoice").fadeOut(500);
+                $(".maincontainer").css('background-image', generatebackground($(this).prop("id")));
+                $(".selectcars").delay(500).fadeIn(500);
+            });
+            $("select").change(function () {
+               var classname = ".carimg"+$(this).prop("id");
+                if ( $(this).val() == "none"){
+                    $(classname).html("<img src='' alt=''>");
+                } else {
+                    $(classname).html("<img src='nfs2_" + $(this).val() + ".png' alt='" + $(this).val() + "'>" );
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="maincontainer">
+        <div class="mapchoice">
+            <h1>Select Map</h1>
+        </div>
+        <div class="selectcars">
+            <h1>Select Cars</h1>
+            <select id="player1" name="carplayer1">
+            </select>
+            <select id="player2" name="carplayer2">
+            </select>
+        </div>
+        <div class="carimgplayer1">
+        </div>
+        <div class="carimgplayer2">
+        </div>
+    </div>
+</body>
+</html>

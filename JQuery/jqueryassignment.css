@@ -1,0 +1,32 @@
+.main{
+    width: 1000px;
+    height: 900px;
+    color: white;
+    background-color: grey;
+    border-bottom: 2px solid darkslategrey;
+}
+.menu{
+    display: inline-block;
+    width: 200px;
+    height: 900px;
+}
+
+.content{
+    display: inline-block;
+    width: 760px;
+    height: 900px;
+    vertical-align: top;
+    text-align: center;
+}
+
+button{
+    width:160px ;
+    height: 50px;
+    background: linear-gradient(#00d33f,#008b2a)
+}
+
+.addingclass{
+    background: lightyellow;
+    text-align: justify;
+    color: darkslategray;
+}

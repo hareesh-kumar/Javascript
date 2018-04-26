@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Time</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        var hour = 8;
+        var minute = 34;
+        var period = "PM";
+        
+        checktime(hour, minute, period);
+
+
+        function checktime(hour, minute, period) {
+            var adj = "";
+            var timeofday = "";
+            var printhr = hour;
+
+            if (period == "AM") {
+                timeofday = "morning";
+            }
+            else if (period == "PM") {
+                timeofday = "evening";
+            }
+            
+            if (minute >= 0 && minute <= 5) {
+            adj = "just after";
+            } else if (minute > 5 && minute <= 10) {
+                adj = "5 after";              
+            } else if (minute > 10 && minute <= 15) {
+                adj = "10 after";
+            } else if (minute > 15 && minute <= 20) {
+                adj = "quarter after";
+            } else if (minute > 20 && minute <= 25) {
+                adj = "20 after";
+            } else if (minute > 25 && minute <= 30) {
+                adj = "25 after";
+            } else if (minute > 30 && minute <= 45) {
+                adj = "half past";
+            } else if (minute > 45 && minute <= 59) {
+                adj = "almost";
+                printhr = printhr + 1;
+            }
+
+            console.log("It's " + adj +" "+ printhr + " in the " + timeofday);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

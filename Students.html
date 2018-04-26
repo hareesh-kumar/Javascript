@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Students and Teachers</title>
+    <script>
+        
+        var students = [
+                { first_name: 'Michael', last_name: 'Jordan' },
+                { first_name: 'John', last_name: 'Rosales' },
+                { first_name: 'Mark', last_name: 'Guillen' },
+                { first_name: 'KB', last_name: 'Tonel' }
+            ]
+        
+        for(var i in students){
+            console.log( students[i]["first_name"] , students[i]["last_name"]);
+        }
+
+        var users = {
+                'Students': [
+                    { first_name: 'Michael', last_name: 'Jordan' },
+                    { first_name: 'John', last_name: 'Rosales' },
+                    { first_name: 'Mark', last_name: 'Guillen' },
+                    { first_name: 'KB', last_name: 'Tonel' }
+                ],
+                'Instructors': [
+                    { first_name: 'Michael', last_name: 'Choi' },
+                    { first_name: 'Martin', last_name: 'Puryear' }
+                ]
+            }
+        
+        for ( var k in users){
+            console.log(k);
+            for (var i in users[k]){
+                var x = Number(i)+1;
+                console.log(String(x),"-",users[k][i].first_name,users[k][i].last_name, "-",users[k][i].first_name.length + users[k][i].last_name.length);
+            }
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
