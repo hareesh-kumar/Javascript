@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contact Card</title>
+    <meta name="description" content="Add your contact here">
+    <link rel="stylesheet" type="text/css" media="screen" href="contactcard.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function enable_description_listeners() {
+            $(".clickdescription").click(function () {
+                $(this).siblings("h1").fadeOut(100);
+                $(this).fadeOut(20);
+                $(this).siblings("p").delay(100).fadeIn(100);   
+                event.stopPropagation();             
+            });
+        }
+        function enable_name_listeners() {
+            $(".contact").click(function () {
+                $(this).children("p.descriptiondisplay").fadeOut(100);
+                $(this).children("h1").delay(100).fadeIn(100);
+                $(this).children("p.clickdescription").delay(100).fadeIn(100);
+            });
+        }
+        $(document).ready(function () {
+            enable_description_listeners();
+            enable_name_listeners();
+            $("form").submit(function () {
+                if ($(this).find('input[name="first_name"]').val() == "") {
+                    return false;                    
+                }
+                var htmlstr = "";
+                htmlstr = "<div class='contact'><h1>" + $(this).find('input[name="first_name"]').val() + " "
+                    + $(this).find('input[name="last_name"]').val() + 
+                    "</h1><p class='clickdescription'>Click to learn more...</p><p class='descriptiondisplay'>"
+                    + $(this).find('textarea[name="description"]').val() + "</p></div>"
+                $(".contactdisplay").append(htmlstr);
+                enable_description_listeners();
+                enable_name_listeners();
+                $('form').trigger("reset");
+                return false;
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <div class="maincontainer">
+        <div class="adduser">
+
+            <h1>Welcome to Addressbook!</h1>
+            <form>
+                <div class="labels">
+                    <label for="first_name">First Name:</label> <br>
+                    <label for="last_name">Last Name:</label> <br>
+                </div>
+                <div class="inputs">
+                    <input type="text" name="first_name" id="first_name" placeholder="First Name">
+                    <br>
+                    <input type="text" name="last_name" id="last_name" placeholder="Last Name"><br>
+                </div>
+                
+                <label for="description">Description:</label><br>
+                <textarea name="description" placeholder="Description"></textarea><br>
+                <input class="inputbutton" type="submit" name="submit" value="Add User">
+            </form>
+        </div>
+        <div class="contactdisplay">
+            <div id="contact1" class="contact">
+                <h1>Hareesh Kumar</h1>
+                <p class='clickdescription'>Click to learn more...</p>
+                <p class="descriptiondisplay">Hi There! Welcome to my contact card page. Hope you enjoy this.</p>
+            </div>
+        </div>
+    </div>

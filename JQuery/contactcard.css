@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.maincontainer{
+    width: 800px;
+    height: 1000px;
+    margin: 0 auto;
+}
+.adduser{
+    width: 300px;
+    height: 700px;
+    margin: 30px 20px 0 10px;
+    border-right: 2px solid black;
+    border-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0)) 1 100%;
+    display: inline-block;
+}
+.inputbutton{
+    width: 75px;
+    padding: 2px;
+    margin-top: 30px;
+    border: 1px solid black;
+    border-radius: 2px;
+    background-image: linear-gradient(#f4f4f4, #dadada, #f4f4f4);
+}
+.labels, .inputs{
+    display: inline-block;
+    margin: 20px 0;
+}
+textarea{
+    width: 239px;
+    height: 105px;
+}
+.contactdisplay{
+    margin: 30px auto;
+    display: inline-block;
+    width: 460px;
+    vertical-align: top;
+}
+.contact{
+    margin: 5px auto;
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    box-shadow: 0 2px 3px rgba(0,0,0,.3);
+    border-radius: 5px;
+}
+h1{
+    margin: 20px;
+}
+.descriptiondisplay{
+    text-align: left;
+    margin: 20px;
+    padding-top: 10px;
+    display: none;
+}
+.contact:hover{
+    transform: scale(1.1,1.1);
+    box-shadow: 0 0 25px 0 rgba(53,62,68,0.4);
+
+}
