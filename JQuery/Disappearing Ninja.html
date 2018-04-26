@@ -27,15 +27,12 @@
             $("button").click(function () {
                 $("img").css("visibility","visible");
             });
+            $("img").click(function () {
+                event.stopPropagation();
+                $(this).css("visibility", "hidden");
+            });
             $(".thisimg").click(function () {
-                console.log($(this).children().prop("hidden"));
-                if($(this).children().is(":hidden")){
-                    console.log("Hidden");
-                    $(this).children().css("visibility","visible");
-                } else {
-                    console.log("visible");
-                    $(this).children().css("visibility", "hidden");
-                }
+                $(this).children().css("visibility","visible");
             });
         });
     </script>
