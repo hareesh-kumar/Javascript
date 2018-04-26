@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.maincontainer{
+    width: 800px;
+    height: 700px;
+    background-color: darkgrey;
+    margin: auto;
+}
+table{
+    border: 2px solid black;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+tr, td, th{
+    border: 2px solid black;
+    text-align: center;
+}
+h1{
+    border-bottom: 2px solid black;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.adduser{
+    width: 300px;
+    height: 300px;
+    text-align: right;
+}
+.inputbutton{
+    padding: 2px;
+    margin-top: 30px;
+    border: 1px solid black;
+    border-radius: 2px;
+    background-image: linear-gradient(#f4f4f4, #dadada, #f4f4f4);
+}
